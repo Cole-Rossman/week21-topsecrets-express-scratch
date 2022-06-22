@@ -12,22 +12,22 @@ const mockUser = {
   password: '12345',
 };
 
-const registerAndLogin = async (userProps = {}) => {
-  const password = userProps.password ?? mockUser.password;
+// const registerAndLogin = async (userProps = {}) => {
+//   const password = userProps.password ?? mockUser.password;
 
-  // Create an "agent" that gives us the ability
-  // to store cookies between requests in a test
-  const agent = request.agent(app);
+//   // Create an "agent" that gives us the ability
+//   // to store cookies between requests in a test
+//   const agent = request.agent(app);
 
 
-  // create a user to sign in with
-  const user = await UserService.create({ ...mockUser, ...userProps });
+//   // create a user to sign in with
+//   const user = await UserService.create({ ...mockUser, ...userProps });
 
-  // ... then sign in 
-  const { email } = user;
-  await agent.post('/api/v1/users/sessions').send({ email, password });
-  return [agent, user];
-};
+//   // ... then sign in 
+//   const { email } = user;
+//   await agent.post('/api/v1/users/sessions').send({ email, password });
+//   return [agent, user];
+// };
 
 describe('secrets routes', () => {
   beforeEach(() => {
@@ -49,5 +49,5 @@ describe('secrets routes', () => {
       email,
     });
   });
-  
+
 });
