@@ -65,6 +65,7 @@ describe('secrets routes', () => {
       .send({ email: 'test@example.com', password: '12345' });
     const res = await request(app).delete('/api/v1/users/sessions');
     expect(res.body).toEqual({
+      success: true,
       message: 'Successfully signed out!'
     });
     expect(res.status).toEqual(200);
