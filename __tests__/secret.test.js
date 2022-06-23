@@ -21,21 +21,25 @@ describe('fish routes', () => {
         id: '1',
         title: 'Secret #1',
         description: 'Do not tell anyone',
+        created_at: expect.any(String),
       },
       {
         id: '2',
         title: 'Secret #2',
         description: 'Maybe tell one person',
+        created_at: expect.any(String),
       },
       {
         id: '3',
         title: 'Secret #3',
         description: 'Maybe tell a few people',
+        created_at: expect.any(String),
       },
       {
         id: '4',
         title: 'Secret #4',
         description: 'Tell anyone, not really a secret',
+        created_at: expect.any(String),
       },
     ]);
   });
