@@ -13,7 +13,7 @@ describe('fish routes', () => {
     pool.end();
   });
   
-  it('/api/v1/secrets', async () => {
+  it('/api/v1/secrets returns list of secrets', async () => {
     const resp = await request(app).get('/api/v1/secrets');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual([
@@ -42,6 +42,17 @@ describe('fish routes', () => {
         created_at: expect.any(String),
       },
     ]);
+  });
+
+  it('POST /api/v1/secrets should create a new secret', async () => {
+    const resp = await request(app).post('/api/v1/secrets').send({
+      title: 'Secret #5',
+      description: 'The biggest secret in the world',
+    });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.title).toEqual('Secret #5');
+    expect(resp.body.description).toEqual('The biggest secret in the world');
+    expect(resp.body.id).not.toBeUndefined();
   });
    
 });
